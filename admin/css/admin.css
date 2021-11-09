@@ -17,6 +17,47 @@
     float: none;
     clear: both;
 }
+.tbl-full{
+    width: 100%;
+}
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+table tr td{
+    padding: 1%;
+}
+.btn-primary{
+    background-color: #1e90ff;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 1%;
+}
+.btn-primary:hover{
+    background-color: #3742fa;
+}
+.btn-secondary{
+    background-color: #2ecc71;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 1%;
+}
+.btn-secondary:hover{
+    background-color: #27ae60;
+}
+.btn-danger{
+    background-color: #ff6b81;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 1%;
+}
+.btn-danger:hover{
+    background-color: #ff4757;
+}
 /*css for Navbar menu starts*/
 .menu{
     border-bottom:1px solid #2ecc71;
@@ -32,6 +73,7 @@
 .menu ul li a{
     text-decoration: none;
     font-weight: bold;
+    text-transform: uppercase;
     color: #3498db;
 }
 .menu ul li a:hover{

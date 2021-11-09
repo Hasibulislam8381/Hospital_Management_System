@@ -1,14 +1,11 @@
 <?php include('partials/menu.php'); ?>
-  
 
-
-    <!--main section starts--> 
-    <div class="main-content">
-        <div class="wrapper">
-            <h1>Manage Admin</h1>
-            <br>
-            <!-- button to add admin-->
-            <a href="#" class="btn-primary">Add Admin</a>
+<div class="main-content">
+    <div class="wrapper">
+    <h1>Manage Inventory</h1>
+    <br>
+    <!-- Manage inventory section-->
+    <a href="#" class="btn-primary">Add Inventory</a>
             <br><br><br>
             <table class="tbl-full">
                 <tr>
@@ -51,9 +48,8 @@
                 </tr>
             </table>
 
-        </div>
-   </div>
-    <!--main section ends-->
+</div>
+</div>
 
 
 <?php include('partials/footer.php'); ?>
