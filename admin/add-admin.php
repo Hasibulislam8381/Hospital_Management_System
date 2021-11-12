@@ -52,8 +52,23 @@ if(isset($_POST['submit']))
     //Get data from form
     $full_name=$_POST['full_name'];
     $username=$_POST['username'];
-    $password=$_POST['password'];
+    $password=md5($_POST['password']);
     //SQL query to save data into the database
+    $sql="INSERT INTO manage_admin SET
+        full_name='$full_name',
+        username='$username',
+        password='$password'
+    ";
+  
+    //executing query and saving data into database
+    $res = mysqli_query($conn,$sql) or die(mysqli_error());
+    if($res==TRUE)
+    {
+        echo "data inserted";
+    }
+    else{
+        echo "not inserted";
+    }
 }
 
 ?>
