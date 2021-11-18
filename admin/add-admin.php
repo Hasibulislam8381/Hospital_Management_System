@@ -4,6 +4,12 @@
     <div class="wrapper">
         <h1>Add Admin</h1>
         <br><br>
+        <?php
+          if(isset($_SESSION['add'])){
+            echo $_SESSION['add'];//Displaying session Message
+            unset($_SESSION['add']);//Removing session Message
+          }
+        ?>
 
         <form action="" method="POST">
             <table class="tbl-30">
@@ -64,10 +70,18 @@ if(isset($_POST['submit']))
     $res = mysqli_query($conn,$sql) or die(mysqli_error());
     if($res==TRUE)
     {
-        echo "data inserted";
+       // echo "data inserted";
+       //create a session variable to dislay a message
+       $_SESSION['add'] = "<div class='success'>Admin Added Successfully </div>";
+       //Redirect page to manage-admin
+       header("location:".SITEURL.'admin/manage-admin.php');
     }
     else{
-        echo "not inserted";
+        //echo "not inserted";
+               //create a session variable to dislay a message
+       $_SESSION['add'] = "Sorry! Failed to add admin";
+       //Redirect page to add-admin
+       header("location:".SITEURL.'admin/add-admin.php');
     }
 }
 

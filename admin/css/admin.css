@@ -61,6 +61,15 @@ table tr td{
 .btn-danger:hover{
     background-color: #ff4757;
 }
+/*message color*/
+.success{
+    color: #05c46b;
+    font-variant: small-caps;
+    font-weight: bolder;
+}
+.error{
+    color: #ff3f34;
+}
 /*css for Navbar menu starts*/
 .menu{
     border-bottom:1px solid #2ecc71;

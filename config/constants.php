@@ -1,5 +1,10 @@
 <?php
+//start session
+  session_start();
+
+
 //create constant for non repeting value
+  define('SITEURL','http://localhost/hospital/');
   define('LOCALHOST','localhost'); 
   define('DB_USERNAME','root'); 
   define('DB_PASSWORD','');
