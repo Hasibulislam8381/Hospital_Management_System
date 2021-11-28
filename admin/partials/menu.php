@@ -1,4 +1,8 @@
-<?php include('../config/constants.php'); ?>
+<?php 
+  
+   include('../config/constants.php');
+   include('login-check.php');
+   ?>
 
 
 <!DOCTYPE html>
@@ -21,6 +25,7 @@
                 <li><a href="appoint-doctor.php">Appoint Doctor</a></li>
                 <li><a href="appoint-receptionist.php">Appoint Receptionist</a></li>
                 <li><a href="manage-inventory.php">Manage Inventory</a></li>
+                <li><a href="logout.php">Logout</a></li>
                 
 
             </ul>
