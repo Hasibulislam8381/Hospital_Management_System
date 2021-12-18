@@ -14,21 +14,20 @@
         <form action="" method="POST">
             <table class="tbl-30">
                 <tr>
-                    <td>Full Name</td>
-                    <td><input type="text" name="full_name" placeholder="Enter Your full name"></td>
+                    
+                    <td><input  type="text" class="username" name="full_name" placeholder="Enter Your full name"></td>
                     
                 </tr>
 
                 <tr>
-                    <td>Username</td>
+                    
                     <td>
-                        <input type="text" name="username" placeholder="Your Username">
+                        <input type="text" class="password" name="username" placeholder="Your Username">
                     </td>
                 </tr>
                 <tr>
-                    <td>Password</td>
                     <td>
-                        <input type="password" name="password" placeholder="Your Password">
+                        <input type="password" class="password" name="password" placeholder="Your Password">
                     </td>
                         
                     
