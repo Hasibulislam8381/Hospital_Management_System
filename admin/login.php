@@ -38,7 +38,7 @@
 
              <!--Login form ends here-->
                
-            <p class="text-center">Created By - <a href="https://www.facebook.com/hasibulislam.himel.12/">Hasibul Islam HImel</a></p>
+            <p class="text-center">Created By - <a href="https://www.facebook.com/hasibulislam.himel.12/">Hasibul Islam Himel</a></p>
         </div>
 
 

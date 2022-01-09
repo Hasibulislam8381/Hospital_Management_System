@@ -106,12 +106,14 @@
                                 <tr>
                                     <td>Active</td>
                                     <td>
-                                        <input type="radio" name="active" value="Yes">Yes
-                                        <input type="radio" name="active" value="No">No
+                                        <input <?php if($active=="Yes"){ echo "checked";}?> type="radio" name="active" value="Yes">Yes
+                                        <input <?php if($active=="Yes"){ echo "checked";}?> type="radio" name="active" value="No">No
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">
+                                    <td>
+                                        <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
+                                        <input type="hidden" name="id" value="<?php echo $id;?>">
                                         <input type="submit" name="submit" value="Update Doctor" class="btn-secondary">
                                      </td>
                                 </tr>
@@ -119,10 +121,115 @@
 
                             </table>
                     </form>
+                    <?php
+                        if(isset($_POST['submit']))
+                        {
+                            //echo "Clicked";
+                            //Get all the valuses from form
+                            $id = $_POST['id'];
+                            $username = $_POST['username'];
+                            $email = $_POST['email'];
+                            $degree = $_POST['degree'];
+                            $mobile = $_POST['mobile'];
+                            $current_image=$_POST['current_image'];
+                            $active = $_POST['active'];
+
+                            //updating new image if selected
+                            if(isset($_FILES['image']['name']))
+                            {
+                                //Get the image details
+                                $image_name = $_FILES['image']['name'];
+                                //check whether the image is available or not
+                                if($image_name != "")
+                                {
+                                    //image availabe
+                                    //upload the new image
+                                     //Auto rename our Image
+                                    //to get the extension of our image(jpg,jpeg,png,gif)
+                                    $ext = end(explode('.',$image_name));
+
+                                    //rename the image
+                                    $image_name="appointed_doctor_".rand(000,999).".".$ext;
+
+
+                                    //to upload image we need image name ,source path and destinaiton path
+                                    $source_path=$_FILES['image']['tmp_name'];
+                                    $destination_path="../images/add-doctor/".$image_name;
+
+                                    //upload the image
+                                    $upload =move_uploaded_file($source_path,$destination_path);
+                                    //check whether the image is uploaded or not
+                                    //if the file uploaded we will stop the process and redirect with error message
+                                    if($upload==false){
+                                        //set message
+                                        $_SESSION['upload']="<div class='error'>Failed to upload image</div>";
+                                        header('location:'.SITEURL.'admin/appoint-doctor.php');
+                                        //stop the process
+                                        die();
+
+                                    }
+                                     
+                                    //remove the current image if available
+                                    if($current_image != "")
+                                    {
+                                        $remove_path = "../images/add-doctor/".$current_image;
+                                        $remove = unlink($remove_path);
+    
+                                        //check whether the remove of not
+                                        //if failed to remove displaymsg and stop process
+                                        if($remove==false)
+                                        {
+                                            $_SESSION['failed-remove'] = "<div class='error'>Failed to remove the image</div>";
+                                            echo "<script>window.location.href='appoint-doctor.php';</script>";
+                                            die();
+                                        }
+
+                                    }
+                      
+
+                                    
+                                }
+                                else
+                                {
+                                    $image_name = $current_image;
+                                }
+
+
+
+                            }
+                            else{
+                                $image_name = $current_image;
+                            }
+
+
+                            //update database
+                            $sql2 = "UPDATE add_doctor SET 
+                            username='$username',
+                            email='$email',
+                            degree='$degree',
+                            mobile='$mobile',
+                            image_name='$image_name',
+                            active='$active' WHERE id=$id
+
+                            ";
+                            //execute the query
+                            $res2=mysqli_query($conn,$sql2);
+                            if($res2==true)
+                            {
+                                $_SESSION['update'] = "<div class='success'>Doctor Updated Successfully</div>";
+                                echo "<script>window.location.href='appoint-doctor.php';</script>";
+                            }
+                            else{
+                                $_SESSION['update'] = "<div class='error'>Failed to update Doctor</div>";
+                                echo "<script>window.location.href='appoint-doctor.php';</script>";
+                            }
+                        }
+
+
+                    ?>
 
 
         </div>
 
   </div>
-
 <?php include('partials/footer.php');?>

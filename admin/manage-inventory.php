@@ -2,10 +2,10 @@
 
 <div class="main-content">
     <div class="wrapper">
-    <h1>Manage Inventory</h1>
+    <h1>See Patient</h1>
     <br>
     <!-- Manage inventory section-->
-    <a href="#" class="btn-primary">Add Inventory</a>
+    <a href="#" class="btn-primary">Patient Request</a>
             <br><br><br>
             <table class="tbl-full">
                 <tr>
