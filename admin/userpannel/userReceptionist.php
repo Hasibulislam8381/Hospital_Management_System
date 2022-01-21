@@ -1,6 +1,8 @@
 <?php 
    include('constants.php');
     //include('login-check.php');
+    include('receptionist-login-check.php');
+
 ?>
 
 
@@ -24,17 +26,25 @@
 <body>
     <div class="header" id="topheader">
         <nav class="navbar navbar-expand-lg fixed-top">
+          <?php
+            if(isset($_SESSION['login']))
+            {
+              echo $_SESSION['login'];
+              unset($_SESSION['login']);
+            }
+          ?>
 
             <div class="container text-uppercase p-2">
             <a class="navbar-brand font-weight-bold text-white"  href="#">Hakimpur Health Complex</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
+   
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto text-uppercase">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="receptionist-profile.php">Profile <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Appointment Request</a>
@@ -46,7 +56,7 @@
                     <a class="nav-link" href="makeappointment.php">Make Appointment</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
+                    <a class="nav-link" href="receptionist-logout.php">Logout</a>
                   </li>
                 
               </ul>
@@ -56,6 +66,14 @@
 
           <section class="header-section">
               <div class="center-div">
+              <?php
+              if(isset($_SESSION['make_appointment']))
+              {
+                echo $_SESSION['make_appointment'];
+                unset($_SESSION['make_appointment']);
+              }
+
+          ?>
                   <h1 class="font-weight-bold animate__animated animate__bounce">RECEPTIONIST</h1>
                   <p class="animate__animated animate__bounce">YOU ARE WELCOME</p>
                   <div class="header-buttons">

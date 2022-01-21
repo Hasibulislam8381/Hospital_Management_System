@@ -23,7 +23,7 @@
                 <li><a href="manage-admin.php">Admin</a></li>
                 <li><a href="appoint-doctor.php">Appoint Doctor</a></li>
                 <li><a href="appoint-receptionist.php">Appoint Receptionist</a></li>
-                <li><a href="patient-request.php">Patient request</a></li>
+                <li><a href="patient-request.php">Patient</a></li>
                 <li><a href="logout.php">Logout</a></li>
                 
 

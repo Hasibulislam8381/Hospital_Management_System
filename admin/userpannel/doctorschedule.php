@@ -1,4 +1,5 @@
-<?php include('constants.php'); ?>
+<?php include('constants.php');
+include('receptionist-login-check.php'); ?>
 <link rel="stylesheet" href="../css/admin.css">
 <!--main section starts--> 
 <div class="main-content">
@@ -107,7 +108,7 @@
                 ?>
 
             </table>
-            <h2><a href="userReceptionist.php">BACK</a></h2>
+            <a href="userReceptionist.php" class="btn-danger">BACK</a>
 
 </div>
 </div>

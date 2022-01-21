@@ -9,7 +9,43 @@
             echo $_SESSION['add'];
             unset($_SESSION['add']);
         }
+        if(isset($_SESSION['no-doctor-found']))
+        {
+            echo $_SESSION['no-doctor-found'];
+            unset($_SESSION['no-doctor-found']);
+        }
+        if(isset($_SESSION['unauthorize']))
+        {
+            echo $_SESSION['unauthorize'];
+            unset($_SESSION['unauthorize']);
+        }
+        if(isset($_SESSION['upload']))
+    {
+        echo $_SESSION['upload'];
+        unset($_SESSION['upload']);
+    }
+        if(isset($_SESSION['failed-remove']))
+        {
+            echo $_SESSION['failed-remove'];
+            unset($_SESSION['failed-remove']);
+        }
+        if(isset($_SESSION['update']))
+        {
+            echo $_SESSION['update'];
+            unset($_SESSION['update']);
+        }
+        if(isset($_SESSION['remove'])){
+            echo $_SESSION['remove'];
+            unset($_SESSION['remove']);
+    
+        }
+        if(isset($_SESSION['delete']))
+        {
+            echo $_SESSION['delete'];
+            unset($_SESSION['delete']);
+        }
     ?>
+    
     <!--Appoint Receptionist section-->
     <a href="<?php echo SITEURL; ?>admin/add-receptionist.php" class="btn-primary">Add Receptionist</a>
             <br><br><br>
@@ -91,8 +127,8 @@
 
                                         <td><?php echo $active; ?></td>
                                         <td>
-                                            <a href="<?php echo SITEURL; ?>admin/update-doctor.php?id=<?php echo $id; ?>" class="btn-secondary">Update Doctor</a>
-                                            <a href="<?php echo SITEURL; ?>admin/delete-doctor.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?> " class="btn-danger">Delete Doctor</a>
+                                            <a href="<?php echo SITEURL; ?>admin/update-receptionist.php?id=<?php echo $id; ?>" class="btn-secondary">Update Doctor</a>
+                                            <a href="<?php echo SITEURL; ?>admin/delete-receptionist.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?> " class="btn-danger">Delete Doctor</a>
                                         </td>
 
 
