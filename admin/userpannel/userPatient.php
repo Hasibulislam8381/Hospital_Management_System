@@ -39,16 +39,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto text-uppercase">
                 <li class="nav-item active">
-                  <a class="nav-link" href="">Profile <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="patient-profile.php">Profile <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Appointment Request</a>
+                    <a class="nav-link" href="patient-request.php">Appointment Request</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="">Doctor Schedule</a>
+                    <a class="nav-link" href="patient-doctorschedule.php">Doctor Schedule</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="">Make Appointment</a>
+                    <a class="nav-link" href="">Feedback</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="patient-logout.php">Logout</a>
@@ -67,6 +67,14 @@
               echo $_SESSION['login'];
               unset($_SESSION['login']);
             }
+          
+            if(isset($_SESSION['appointment_req']))
+            {
+              echo $_SESSION['appointment_req'];
+              unset($_SESSION['appointment_req']);
+            }
+     
+        
           ?>
                   <h1 class="font-weight-bold animate__animated animate__bounce">Patient</h1>
                   <p class="animate__animated animate__bounce">YOU ARE WELCOME</p>

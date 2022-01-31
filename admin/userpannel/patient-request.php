@@ -1,5 +1,5 @@
 <?php include('constants.php');
-  include('receptionist-login-check.php'); ?>
+  include('patient-logincheck.php'); ?>
 
 <html lang="en">
 <head>
@@ -18,10 +18,10 @@
 
     </div>
     <?php
-       if(isset($_SESSION['make_appointment']))
+       if(isset($_SESSION['appointment_req']))
        {
-         echo $_SESSION['make_appointment'];
-         unset($_SESSION['make_appointment']);
+         echo $_SESSION['appointment_req'];
+         unset($_SESSION['appointment_req']);
        }
 
     ?>
@@ -35,9 +35,13 @@
         <input type="email" name="email" placeholder="abc@xyz.com" required>
 
         <label>Contact Num:</label>
-        <input type="tel"  placeholder="contact" name="phone">
+        <input type="tel"  placeholder="contact" name="phone" required>
         <label>Address:</label>
         <input type="text"  name="address" placeholder="address" required>
+        <label>Age:</label>
+        <input type="text"  name="age" placeholder="Your Age" required>
+        <label>Date for Appoinment:</label>
+        <input type="date" name="date"  required></input>
 
        
 
@@ -46,10 +50,6 @@
 
       <fieldset>
         <legend><span class="number">2</span>Appointment Details</legend>
-        
-        <br>
-        <label>Appointed Doctor:</label>
-        <input type="text" name="doctor"></input>
         <label>Appointment for:</label>
         <select  name="appointment_for" required>
           <option value="Medicine">Medicine</option>
@@ -61,19 +61,12 @@
           <option value="High blood pressure">High blood pressure</option>
         </select>
         
-        <label>Date:</label>
-        <input type="date" name="date"  required></input>
-        <br>
-        <label>Time:</label>
-        <input type="time" name="time"  required></input>
-        <br>
-        <label>Patient type:</label>
-        <input type="radio" name="ptype" value="New"  required>New
-        <input type="radio" name="ptype" value="Regular"  required>Regular
+       
+      
 
     
       </fieldset>
-      <button type="submit" name="submit">Confirm Appointment</button>
+      <button type="submit" name="submit">Request For Appointment</button>
     </form>
 
   </div>
@@ -83,41 +76,36 @@
 <?php
   if(isset($_POST['submit']))
   {
+    
      $user_name=$_POST['user_name'];
      $email=$_POST['email'];
      $phone=$_POST['phone'];
      $address=$_POST['address'];
-     $doctor=$_POST['doctor'];
-     $appointment_for=$_POST['appointment_for'];
+     $age=$_POST['age'];
      $date=$_POST['date'];
-     $time=$_POST['time'];
-     if(isset($_POST['ptype'])){
-       $ptype=$_POST['ptype'];
-     }
-     else{
-       $ptype="new";
-     }
+     $appointment_for=$_POST['appointment_for'];
 
-     $sql= "INSERT INTO make_appointment SET
+
+     $sql= "INSERT INTO appointment_req SET
+            
             user_name='$user_name',
             email='$email',
             phone='$phone',
-            doctor='$doctor',
             address='$address',
-            appointment_for='$appointment_for',
+            age='$age',
             date='$date',
-            time='$time',
-            ptype='$ptype'
+            appointment_for='$appointment_for',
+            dt=current_timestamp()
             ";
     $res= mysqli_query($conn,$sql);
     if($res==true)
     {
-      $_SESSION['make_appointment']="<div class='success'>Appointment Successfull!</div>";
-      header('location:'.SITEURL.'admin/userpannel/userReceptionist.php');
+      $_SESSION['appointment_req']="<div class='success'>Request sent</div>";
+      header('location:'.SITEURL.'admin/userpannel/userPatient.php');
     }
     else{
-        $_SESSION['make_appointment']="<div class='error'>Appointment filed</div>";
-        header('location:'.SITEURL.'admin/userpannel/makeappointment.php');
+        $_SESSION['appointment_req']="<div class='error'>Request filed</div>";
+        header('location:'.SITEURL.'admin/userpannel/patient-request.php');
      }
      
   }

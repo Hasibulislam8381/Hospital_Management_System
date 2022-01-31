@@ -47,13 +47,13 @@
                   <a class="nav-link" href="receptionist-profile.php">Profile <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Appointment Request</a>
+                    <a class="nav-link" href="receptionist-viewrequest.php">View Request</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="doctorschedule.php">Doctor Schedule</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="makeappointment.php">Make Appointment</a>
+                    <a class="nav-link" href="bookingcalender.php">Make Appointment</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="receptionist-logout.php">Logout</a>
